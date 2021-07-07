@@ -1,0 +1,16 @@
+
+---
+xrp:
+  net:
+    host: https://s.devnet.rippletest.net
+    port: 51234
+  faucet:
+    host: https://faucet.devnet.rippletest.net
+    port: 443
+
+---
+
+logging:
+  level:
+    root: INFO
+    io.forest: DEBUG
