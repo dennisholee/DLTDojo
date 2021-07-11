@@ -1,52 +1,44 @@
-package io.forest;
+package io.forest.models;
+
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@JsonPropertyOrder({ "TransactionType", "Account", "Amount", "Destination" })
-public class PaymentModel {
+@JsonPropertyOrder({ "account", "amount", "checkId" })
+public class CheckClaimModel {
 
-	private String transactionType;
-
+	@NotBlank
 	private String account;
 
+	@NotBlank
 	private String amount;
 
-	private String destination;
+	@NotBlank
+	private String checkId;
 
 	@JsonCreator
-	public PaymentModel(@JsonProperty("transactionType") String transactionType,
-			@JsonProperty("account") String account, @JsonProperty("amount") String amount,
-			@JsonProperty("destination") String destination) {
+	public CheckClaimModel(@JsonProperty("account") String account, @JsonProperty("amount") String amount,
+			@JsonProperty("checkId") String checkId) {
 		super();
-		this.transactionType = transactionType;
 		this.account = account;
 		this.amount = amount;
-		this.destination = destination;
+		this.checkId = checkId;
 	}
 
-	@JsonGetter("TransactionType")
-	public String getTransactionType() {
-		return transactionType;
-	}
-
-	@JsonGetter("Account")
 	public String getAccount() {
 		return account;
 	}
 
-	@JsonGetter("Amount")
 	public String getAmount() {
 		return amount;
 	}
 
-	@JsonGetter("Destination")
-	public String getDestination() {
-		return destination;
+	public String getCheckId() {
+		return checkId;
 	}
 
 	@Override
@@ -59,5 +51,4 @@ public class PaymentModel {
 			return "";
 		}
 	}
-
 }

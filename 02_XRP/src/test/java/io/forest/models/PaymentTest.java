@@ -1,4 +1,4 @@
-package io.forest;
+package io.forest.models;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class PaymentTest {
 	@Test
 	void test() throws JsonProcessingException {
 		PaymentModel payment = new PaymentModel("payment", "account", "amount", "destination");
-		
+
 		System.out.println(new ObjectMapper().writeValueAsString(payment));
 	}
 
