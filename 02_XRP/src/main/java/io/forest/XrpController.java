@@ -141,8 +141,6 @@ public class XrpController {
 	@ResponseStatus(HttpStatus.OK)
 	public EntityModel<Map<String, Object>> postAccounts(@RequestBody WalletModel<String> walletModel)
 			throws JsonRpcClientErrorException {
-		// log.debug("RequestPayload> {}", node.toPrettyString());
-		// String address = node.at("/account").asText();
 		String address = walletModel.getAddress();
 		Address classicAddress = Address.builder().value(address).build();
 		log.debug("classAddress> {}", classicAddress.value());
